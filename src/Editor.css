@@ -1,0 +1,23 @@
+.Editor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.Editor-left-panel {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.Editor-right-panel {
+  position: absolute;
+  right: 0;
+  width: 50%;
+}
+
+.Panel {
+  width: 100%;
+  height: 100%;
+}
