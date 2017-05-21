@@ -1,14 +1,24 @@
 import ace from 'brace';
 import React, { Component } from 'react';
 import PagePreview from './PagePreview';
+import HTMLtoJSXConverter from 'htmltojsx';
 import './Editor.css';
 
 class Editor extends Component {
 
   componentDidMount() {
     this.editor = ace.edit(this.editorRef);
-    this.editor.getSession().setMode('ace/mode/javascript');
-    this.editor.setTheme('ace/theme/monokai');
+    this.editor.on('change', this.onChange);
+    // this.converter = new HTMLtoJSXConverter({
+    //   createClass: true,
+    //   outputClassName: 'PageComponent'
+    // })
+  }
+
+  onChange = () => {
+    const pageHtml = this.editor.getValue()
+    // const pageJSX = this.converter.convert(pageHtml)
+    // console.log(pageJSX)
   }
 
   updateRef = (ref) => {

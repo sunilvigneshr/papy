@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "brace": "^0.10.0",
+    "child_process": "^1.0.2",
+    "htmltojsx": "git+https://github.com/reactjs/react-magic.git",
     "react": "^15.5.4",
-    "react-ace": "^4.3.0",
     "react-dom": "^15.5.4"
   },
+  "browser": { "fs": false, "child_process": false },
   "devDependencies": {
     "react-scripts": "1.0.2"
   },
