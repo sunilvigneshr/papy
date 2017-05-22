@@ -1,24 +1,21 @@
 import ace from 'brace';
 import React, { Component } from 'react';
 import PagePreview from './PagePreview';
-import HTMLtoJSXConverter from 'htmltojsx';
-import './Editor.css';
+import './Editor.css'
 
 class Editor extends Component {
+
+  state = {
+    code: ''
+  }
 
   componentDidMount() {
     this.editor = ace.edit(this.editorRef);
     this.editor.on('change', this.onChange);
-    // this.converter = new HTMLtoJSXConverter({
-    //   createClass: true,
-    //   outputClassName: 'PageComponent'
-    // })
   }
 
   onChange = () => {
-    const pageHtml = this.editor.getValue()
-    // const pageJSX = this.converter.convert(pageHtml)
-    // console.log(pageJSX)
+    this.setState({ code: this.editor.getValue() })
   }
 
   updateRef = (ref) => {
@@ -32,7 +29,7 @@ class Editor extends Component {
             <div id="editor" ref={this.updateRef}></div>
         </div>
         <div className="Editor-right-panel">
-          <PagePreview></PagePreview>
+          <PagePreview code={this.state.code}></PagePreview>
         </div>
       </div>
     )
